@@ -1,0 +1,33 @@
+<?php
+
+/** @var int $countPages */
+/** @var int $page */
+
+?>
+
+<?php if ($countPages > 1): ?>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="<?= $route; ?>?page=1">1</a></li>
+            <?php if ($page > 3): ?>..<?php endif; ?>
+            <?php if ($page > 2): ?>
+                <li class="page-item"><a class="page-link" href="<?= $route; ?>?page=<?= $page - 1; ?>"><?= $page
+                        - 1; ?></a></li>
+            <?php endif; ?>
+            <?php if ($page > 1): ?>
+                <li class="page-item"><a class="page-link" href="<?= $route; ?>?page=<?= $page; ?>"><?= $page; ?></a>
+                </li>
+            <?php endif; ?>
+            <?php if ($countPages - $page > 1): ?>
+                <li class="page-item"><a class="page-link" href="<?= $route; ?>?page=<?= $page + 1; ?>"><?= $page
+                        + 1; ?></a></li>
+            <?php endif; ?>
+            <?php if ($countPages - $page > 2): ?>..<?php endif; ?>
+            <?php if ($countPages - $page > 0): ?>
+                <li class="page-item">
+                    <a class="page-link" href="<?= $route; ?>?page=<?= $countPages; ?>"><?= $countPages; ?></a>
+                </li>
+            <?php endif; ?>
+        </ul>
+    </nav>
+<?php endif; ?>

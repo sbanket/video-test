@@ -1,0 +1,35 @@
+<?php
+
+use Category\Dto\CategoryTo;
+use Video\Dto\VideoTo;
+
+/** @var CategoryTo $category */
+/** @var VideoTo[] $videos */
+
+$route = '/category/' . $category->getId();
+?>
+    <a href="/"><< Back</a>
+    <h1>Category <?= $category->getName(); ?></h1>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Tags</th>
+            <th scope="col">Ctr</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($videos as $video): ?>
+            <tr>
+                <td><?= $video->getTitle(); ?></td>
+                <td><?= $video->getTagsStr(3); ?></td>
+                <td><?= $video->getCtr(); ?></td>
+                <td><a href="/category/<?= $category->getId(); ?>/video-click/<?= $video->getId(); ?>">View</a></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+
+<?php include(__DIR__ . '/../../../app/View/partial/pagination.phtml'); ?>

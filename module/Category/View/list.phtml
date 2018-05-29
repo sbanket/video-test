@@ -1,0 +1,29 @@
+<?php
+
+use Category\Dto\CategoryTo;
+
+/** @var CategoryTo[] $categories */
+
+$route = '/';
+?>
+
+    <h1>Categories</h1>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($categories as $category): ?>
+            <tr>
+                <td><?= $category->getName(); ?></td>
+                <td><a href="/category/<?= $category->getId(); ?>">View</a></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+
+<?php include(__DIR__ . '/../../../app/View/partial/pagination.phtml'); ?>

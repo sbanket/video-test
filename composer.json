@@ -1,0 +1,13 @@
+{
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Category\\": "module/Category",
+            "Video\\": "module/Video",
+            "Tag\\": "module/Tag"
+        }
+    },
+    "require": {
+        "vlucas/phpdotenv": "^2.4"
+    }
+}

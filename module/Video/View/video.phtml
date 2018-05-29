@@ -1,0 +1,37 @@
+<?php
+
+use Category\Dto\CategoryTo;
+use Video\Dto\VideoTo;
+
+/** @var VideoTo $video */
+/** @var CategoryTo $category */
+?>
+
+<h1>Video <?= $video->getTitle(); ?></h1>
+
+<a href="/category/<?= $category->getId(); ?>"><< Back</a>
+
+<table class="table table-striped">
+    <tbody>
+    <tr>
+        <td>Shows</td>
+        <td><?= $video->getShows(); ?></td>
+    </tr>
+    <tr>
+        <td>Clicks</td>
+        <td><?= $video->getClicks(); ?></td>
+    </tr>
+    <tr>
+        <td>Ctr</td>
+        <td><?= $video->getCtr(); ?></td>
+    </tr>
+    <tr>
+        <td>Categories</td>
+        <td><?= $video->getCategoriesStr(); ?></td>
+    </tr>
+    <tr>
+        <td>Tags</td>
+        <td><?= $video->getTagsStr(); ?></td>
+    </tr>
+    </tbody>
+</table>
